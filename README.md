@@ -9,7 +9,7 @@
 [![Package size](https://img.shields.io/bundlephobia/min/AverisAssignment)](https://img.shields.io/bundlephobia/min/AverisAssignment)
 [![Dependencies](https://img.shields.io/david/mohit5783@gmail.com/AverisAssignment.svg?style=popout-square)](https://david-dm.org/mohit5783@gmail.com/AverisAssignment)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-[![Twitter](https://img.shields.io/twitter/follow/luctstt.svg?label=Follow&style=social)](https://twitter.com/luctstt)
+
 
 ---
 ## Features ✨
