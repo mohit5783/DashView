@@ -7,6 +7,7 @@ const getAllCandidates = async (req, res) => {
     const getAllCandidatesQuery = 'SELECT * FROM "Candidates"';
     try {
       const { rows } = await dbQuery.query(getAllCandidatesQuery);
+      
       const dbResponse = rows;
       if (dbResponse[0] === undefined) {
         errorMessage.error = 'There are no Candidates';

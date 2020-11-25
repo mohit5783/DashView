@@ -73,10 +73,10 @@ const empty = (input) => {
 const generateUserToken = (email, id, first_name, last_name) => {
   
   const token = jwt.sign({
-    email,
+    email: email,
     user_id: id,
-    first_name,
-    last_name,
+    first_name: first_name,
+    last_name: last_name,
   },
   env.secret, { expiresIn: '3d' });
   return token;

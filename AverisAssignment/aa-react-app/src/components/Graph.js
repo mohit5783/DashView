@@ -26,7 +26,7 @@ export default class Graph extends React.Component {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-                'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0NTc4M0BnbWFpbC5jb20iLCJ1c2VyX2lkIjoxLCJsYXN0X25hbWUiOiJNb2hpdCIsImlhdCI6MTYwNTI4OTkxNCwiZXhwIjoxNjA1NTQ5MTE0fQ.pnw9cqMc6JCiXE7FonY-F8VWYA224xb2hb9e9IkT5-g',
+                'token': localStorage.getItem('token'),
             },
         });
         const GraphData = await response.json();
@@ -126,47 +126,49 @@ export default class Graph extends React.Component {
 
             },]
         };
-
+        const $primary = "#7367F0",
+        $success = "#28C76F",
+        $danger = "#EA5455",
+        $warning = "#FF9F43",
+        $label_color = "#1E1E1E"
+        
+      const themeColors = [$primary, $success, $danger, $warning, $label_color];
         const AbsentismChart = {
             labels: result.map(item => item.Year),
             datasets: [{
                 label: "Sick",
                 data: result.map(item => item.sick),
                 borderColor: 'gray',
-                backgroundColor: 'red',
-                hoverBackgroundColor: 'pink',
+                backgroundColor: themeColors,
+                hoverBackgroundColor: 'red',
                 fill: true,
             },
             {
                 label: "Emergency",
                 data: result.map(item => item.emergency),
                 borderColor: 'gray',
-                backgroundColor: 'green',
-                hoverBackgroundColor: 'yellow',
-                fill: false,
-
+                backgroundColor: themeColors,
+                hoverBackgroundColor: 'pink',
+                fill: true,
             },
             {
                 label: "Casual",
                 data: result.map(item => item.casual),
                 borderColor: 'gray',
-                backgroundColor: 'orange',
-                hoverBackgroundColor: 'white',
-                fill: false,
-
+                backgroundColor: themeColors,
+                hoverBackgroundColor: 'cyan',
+                fill: true,
             },
             {
                 label: "Unknown",
                 data: result.map(item => item.unknown),
                 borderColor: 'gray',
-                backgroundColor: 'blue',
-                hoverBackgroundColor: 'black',
-                fill: false,
-
+                backgroundColor: themeColors,
+                hoverBackgroundColor: 'orange',
+                fill: true,
             },
-        ]
+            ]
         };
-
         this.setState({ AbsentismData: AbsentismChart });
         this.setState({ SelCandData: SelCanChart });
         this.setState({ HeadCountData: HCChart });

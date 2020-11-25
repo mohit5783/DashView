@@ -1,0 +1,9 @@
+.navbar-light .btn-navbar, .navbar-light .form-control-navbar {
+    background-color: white;
+}
+.form-control-navbar {
+    margin-top: -10px;
+}
+.logout{
+    width: 200px;
+}

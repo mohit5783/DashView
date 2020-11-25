@@ -14,7 +14,6 @@ import {
 
 const signInUser = async (req, res) => {
   const { email, password } = req.body;
-  console.log(req.body);
   if (isEmpty(email) || isEmpty(password)) {
     errorMessage.error = 'Email or Password detail is missing';
     return res.status(status.bad).send(errorMessage);
@@ -35,7 +34,7 @@ const signInUser = async (req, res) => {
       errorMessage.error = 'The password you provided is incorrect';
       return res.status(status.bad).send(errorMessage);
     }
-    const token = generateUserToken(dbResponse.email, dbResponse.id, dbResponse.is_admin, dbResponse.first_name, dbResponse.last_name);
+    const token = generateUserToken(dbResponse.email, dbResponse.id, dbResponse.first_name, dbResponse.last_name);
     delete dbResponse.password;
     successMessage.data = dbResponse;
     successMessage.data.token = token;

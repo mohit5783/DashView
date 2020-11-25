@@ -27,7 +27,7 @@ export default class Candidates extends React.Component {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-                'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vaGl0NTc4M0BnbWFpbC5jb20iLCJ1c2VyX2lkIjoxLCJsYXN0X25hbWUiOiJNb2hpdCIsImlhdCI6MTYwNTI4OTkxNCwiZXhwIjoxNjA1NTQ5MTE0fQ.pnw9cqMc6JCiXE7FonY-F8VWYA224xb2hb9e9IkT5-g',
+                'token': localStorage.getItem('token'),
             },
         });
         const tblData = await response.json();

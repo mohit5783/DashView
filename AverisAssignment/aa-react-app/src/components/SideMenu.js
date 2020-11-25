@@ -1,47 +1,32 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons'
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
+import { faTachometerAlt, faCircle } from '@fortawesome/free-solid-svg-icons'
 import MainContent from './MainContent';
+import AnotherContent from './AnotherContent';
+import jwt_decode from "jwt-decode";
+
 export default class SideMenu extends React.Component {
-
-    state = {
-        genderOption: "BOTH",
-        regionOption: "BOTH",
-        tempGender: null,
-        tempRegion: null,
-    };
-
-    handleApply = () => {
-        this.setState({
-            genderOption: this.state.tempGender,
-            regionOption: this.state.tempRegion,
-        });
+    constructor(props) {
+        super(props);
+        this.state = {
+            showComponent: true,
+        };
+        this.ShowDashboardv1 = this.ShowDashboardv1.bind(this);
+        this.ShowDashboardv2 = this.ShowDashboardv2.bind(this);
     }
 
-    genderChanged = (selVal) => {
+    ShowDashboardv1() {
         this.setState({
-            tempGender: selVal.value,
+            showComponent: true,
         });
     }
-
-    regionChanged = (selVal) => {
+    ShowDashboardv2() {
         this.setState({
-            tempRegion: selVal.value,
+            showComponent: false,
         });
     }
-
     render() {
-        const GenderOptions = [
-            'MALE', 'FEMALE', 'BOTH'
-        ];
-        const defaultGenderOption = GenderOptions[2];
-
-        const RegionOptions = [
-            'LOCAL', 'EXPATS', 'BOTH'
-        ];
-        const defaultRegionOption = RegionOptions[2];
+        const userdata = jwt_decode(localStorage.getItem('token'));
         return (
             <div>
                 <aside className="main-sidebar sidebar-dark-primary elevation-4">
@@ -57,7 +42,9 @@ export default class SideMenu extends React.Component {
                                 <img src="Mohit.jpg" className="img-circle elevation-2" alt="User" />
                             </div>
                             <div className="info">
-                                <a href="https://stackoverflow.com/users/3796048/mohit-shrivastava" className="d-block">Mohit Shrivastava</a>
+                                <a href="https://stackoverflow.com/users/3796048/mohit-shrivastava" className="d-block">
+                                    {userdata.first_name}  {userdata.last_name}
+                                </a>
                             </div>
                         </div>
 
@@ -65,21 +52,21 @@ export default class SideMenu extends React.Component {
                             <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                                 <li className="nav-item has-treeview menu-open">
                                     <span className="nav-link active">
-                                        <FontAwesomeIcon icon={faTachometerAlt} /> &nbsp;
-                                <p>Dashboard Options</p>
+                                        <FontAwesomeIcon icon={faTachometerAlt} />&nbsp;
+                                        <p>Dashboard Options</p>
                                     </span>
                                     <ul className="nav nav-treeview">
                                         <li className="nav-item">
-                                            <span className="nav-link">Gender Options</span>
-                                            <Dropdown onChange={this.genderChanged} options={GenderOptions} value={defaultGenderOption} />
+                                            <button className="nav-link btn btn-link btn-block" onClick={this.ShowDashboardv1}>
+                                                <FontAwesomeIcon icon={faCircle} />&nbsp;
+                                                <p>Dashboard v1</p>
+                                            </button>
                                         </li>
                                         <li className="nav-item">
-                                            <span className="nav-link">Region Options</span>
-                                            <Dropdown onChange={this.regionChanged} options={RegionOptions} value={defaultRegionOption} />
-                                        </li>
-                                        <li className="nav-item">
-                                            <span className="nav-link"></span>
-                                            <button type="button" onClick={this.handleApply} className="btn btn-primary btn-lg pull-right mr-1">Apply</button>
+                                            <button className="nav-link btn btn-link btn-block" onClick={this.ShowDashboardv2}>
+                                                <FontAwesomeIcon icon={faCircle} />&nbsp;
+                                                <p>Dashboard v2</p>
+                                            </button>
                                         </li>
                                     </ul>
                                 </li>
@@ -87,7 +74,13 @@ export default class SideMenu extends React.Component {
                         </nav>
                     </div>
                 </aside>
-                <MainContent gender={this.state.genderOption} region={this.state.regionOption} />
+                {
+                    this.state.showComponent
+                        ?
+                        <MainContent gender={this.props.gender} region={this.props.region} />
+                        :
+                        <AnotherContent gender={this.props.gender} region={this.props.region} />
+                }
             </div>
         );
     }

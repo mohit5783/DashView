@@ -4,6 +4,17 @@ import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { withRouter } from 'react-router-dom';
 
 class LoginPage extends React.Component {
+    constructor(props) {
+        super(props)
+        this._isMounted = true;
+    }
+
+    componentDidMount() {
+        this._isMounted = true;
+    }
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
     state = {
         authToken: null,
     }
@@ -20,15 +31,19 @@ class LoginPage extends React.Component {
                 body: JSON.stringify({ "email": e.target.elements.email.value, "password": e.target.elements.pwd.value })
             });
             rawResponse.json().then(res => res).then(user => {
-                this.setState({ authToken: user.data.token });
+                if (this._isMounted)
+                    this.setState({ authToken: user.data.token });
             });
         })();
+
         if (this.state.authToken) {
+            localStorage.setItem('token', this.state.authToken);
             this.props.history.push("/DashboardPage")
         }
     }
 
     render() {
+
         return (
             <div className="container-fluid hold-transition login-page ">
                 <div className="login-box">
