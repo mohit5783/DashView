@@ -1,17 +1,16 @@
 # Averis Mohit
 <img src="https://i.imgur.com/wCCcpGI.png" alt="Logo project" />
-<div align="center">
   <p>
      <i>Creating a dashboard for Test assessment for Averis Sdn. Bhd. - Averis is a world-class provider of global business services, dedicated to meeting the technological, market and business challenges worldwide. Touching the lives of our customers everywhere, every day Reliable, accurate, service-oriented; at the heart of our operations beats our vision to provide our customers with the best scalable, cost-effective outsourcing global business solutions in real-time!</i>
   </p>
-<p>
+
 [![Build Status](https://travis-ci.com/mohit5783@gmail.com/AverisAssignment.svg?branch=master)](https://travis-ci.com/mohit5783@gmail.com/AverisAssignment)
 [![NPM version](https://img.shields.io/npm/v/AverisAssignment?style=flat-square)](https://img.shields.io/npm/v/AverisAssignment?style=flat-square)
 [![Package size](https://img.shields.io/bundlephobia/min/AverisAssignment)](https://img.shields.io/bundlephobia/min/AverisAssignment)
 [![Dependencies](https://img.shields.io/david/mohit5783@gmail.com/AverisAssignment.svg?style=popout-square)](https://david-dm.org/mohit5783@gmail.com/AverisAssignment)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Twitter](https://img.shields.io/twitter/follow/luctstt.svg?label=Follow&style=social)](https://twitter.com/luctstt)
-</p></div>
+
 ---
 ## Features ✨
 * REST API Developed in Node.js using Express.
