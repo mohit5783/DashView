@@ -1,7 +1,8 @@
-# Averis Mohit
-<img src="https://i.imgur.com/wCCcpGI.png" alt="Logo project" />
+# DashView Pro
+
+
   <p>
-     <i>Creating a dashboard for Test assessment for Averis Sdn. Bhd. - Averis is a world-class provider of global business services, dedicated to meeting the technological, market and business challenges worldwide. Touching the lives of our customers everywhere, every day Reliable, accurate, service-oriented; at the heart of our operations beats our vision to provide our customers with the best scalable, cost-effective outsourcing global business solutions in real-time!</i>
+     <i>Introducing DashView Pro – a cutting-edge dashboard application meticulously crafted using ReactJS and Node.js technologies. Our project leverages the power of ExpressJS and TypeScript to create a seamless user experience. With a robust REST API design pattern and PostgreSQL database integration, DashView Pro empowers you to filter and visualize data effortlessly. Experience the convenience of authentication using JSON Web Tokens (JWT) as you sign in to a world of data insights. Seamlessly render dynamic charts with the help of Chart.js, ensuring you're always informed. Welcome to the future of data management with DashView Pro – where data meets elegance.</i>
   </p>
 
 [![Build Status](https://travis-ci.com/mohit5783@gmail.com/AverisAssignment.svg?branch=master)](https://travis-ci.com/mohit5783@gmail.com/AverisAssignment)
@@ -24,7 +25,7 @@
 You will need to have Node.js or Yarn installed in your machine. [[NodeJs](https://nodejs.org/en)] [[YarnPkg](https://yarnpkg.com/)]
 You will also need [[PostgreSQL](https://www.postgresql.org/download/)] 
 ### Database
-The Database name is "AverisMohit" and it contains three tables
+The Database name is "DashViewDB" and it contains three tables
 <img src="https://i.imgur.com/LMDaRKa.png" alt="Database Tables" />
 SQL to create the database can be found in "DummyData" directory.
 
@@ -41,7 +42,7 @@ Compiles and hot-reloads for development:
 ```
 This will start the backend server
 ```
-> averisassignment@1.0.0 start ...\API
+> DashView@1.0.0 start ...\API
 > nodemon --watch . --exec babel-node -- index
 
 [nodemon] 2.0.6
